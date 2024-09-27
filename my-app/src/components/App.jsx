@@ -8,7 +8,7 @@ import axios from 'axios';
 function App() {
   const [notes, setNotes] = useState([]);
   const fetchNotes = () => {
-    axios.get('http://localhost:7000/list')
+    axios.get('https://keeper-backend-26pv.onrender.com/list')
       .then(result => setNotes(result.data))
       .catch(err => console.log(err));
   };
@@ -17,13 +17,13 @@ function App() {
     fetchNotes();
   },[])
   function addNote1(newNote) {
-    axios.post('http://localhost:7000/add', newNote).then(result => {
+    axios.post('https://keeper-backend-26pv.onrender.com/add', newNote).then(result => {
       fetchNotes();
     }).catch(err => console.log(err));
   }
   
   function deleteNote(id) {
-    axios.delete('http://localhost:7000/delete/' + id).then(result => {
+    axios.delete('https://keeper-backend-26pv.onrender.com/delete/' + id).then(result => {
       fetchNotes();
     }).catch(err => console.log(err));
   }
